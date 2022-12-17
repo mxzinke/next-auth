@@ -133,11 +133,11 @@ async function handleMiddleware(
     options.trustHost,
     req.headers?.get("x-forwarded-host"),
     process.env.NEXTAUTH_URL ??
-      (process.env.NODE_ENV !== "production" && "http://localhost:3000")
+    (process.env.NODE_ENV !== "production" && "http://localhost:3000")
   )
   const authPath = parseUrl(host).path
 
-  const publicPaths = ["/_next", "/favicon.ico"]
+  const publicPaths = ["/_next", "/favicon.ico", "robots.txt"]
 
   // Avoid infinite redirects/invalid response
   // on paths that never require authentication
